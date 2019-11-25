@@ -45,7 +45,7 @@ function Remove-StaleBranches([switch]$Force) {
     $branches = Invoke-Expression "git branch -vv" | Select-String "^\s*(?'branch'[-a-zA-Z\/_0-9]+).*(?=: gone]).*$" -AllMatches `
     | ForEach-Object { $_.Matches[0].Groups["branch"].value }
   
-    if (-not $Force) {
+    if (-not $Force -and $branches.count -gt 0) {
         Write-Host "Deleting the following branches" -ForegroundColor Yellow
         foreach ($branch in $branches) {
             Write-Host $branch
