@@ -64,8 +64,8 @@ function Update-EventGrid(
   try {
     $sourceResourceId = "/subscriptions/$($subscription)/resourceGroups/$($resourceGroup)/providers/Microsoft.EventGrid/topics/$($Namespace)"
   
-    getEndpointAndUpdate $sourceResourceId "orchestrator" "orchestrator" "api/event?secret=${$secret}"
-    getEndpointAndUpdate $sourceResourceId "outgoing" "outgoing" "notifications?secret=${$secret}"
+    getEndpointAndUpdate $sourceResourceId "orchestrator" "orchestrator" "api/event?secret=$($secret)"
+    getEndpointAndUpdate $sourceResourceId "outgoing" "outgoing" "notifications?secret=$($secret)"
   
     exit 0
   }
