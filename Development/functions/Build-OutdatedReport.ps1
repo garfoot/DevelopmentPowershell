@@ -34,7 +34,7 @@ Build-OutdatedReport takes the output from paket outdated and generates a report
 .parameter InFile
 The input file generated as the output file from "paket outdated --log-file Outfile"
 #>
-function Build-OutdatedReport([string] $InFile) {
+function Show-OutdatedReport([string] $InFile) {
     $versions = New-Object PSObject -Property @{
         Major = [System.Collections.ArrayList]@();
         Minor = [System.Collections.ArrayList]@();
