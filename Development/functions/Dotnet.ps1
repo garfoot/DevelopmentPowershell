@@ -24,5 +24,5 @@ function Edit-UserSecrets(
         throw "User secrets for $($Id) does not exist"
     }
 
-    Invoke-Item -LiteralPath $secrets
+    Invoke-Item -LiteralPath $secrets | Out-Null
 }
